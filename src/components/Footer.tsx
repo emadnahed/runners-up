@@ -41,7 +41,17 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 <Link to="/contact" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
                   Contact
                 </Link>
-              </li>              
+              </li>      
+              <li>
+                <Link to="/privacy" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
+                  Privacy Policy
+                </Link>
+              </li> 
+              <li>
+                <Link to="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
+                  Terms and Conditions  
+                </Link>
+              </li>                   
             </ul>
           </div>
 

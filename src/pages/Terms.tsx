@@ -11,63 +11,81 @@ const Terms = () => {
 
         <div className="prose max-w-none">
           <p className="mb-4">
-            Welcome to Edu-Madi. These Terms and Conditions outline the rules and
-            regulations for the use of PROMETHORA FINTECH SOLUTIONS PVT LTD's
-            website.
+            Welcome to our Educational Portal. These Terms and Conditions ("Terms") govern your access to and use of our online learning platform, including all courses, content, and services (collectively, the "Services") provided by our educational institution.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
-            1. Terms of Service
+            1. Acceptance of Terms
           </h2>
           <p className="mb-4">
-            By accessing this website, you accept these terms and conditions in
-            full. Do not continue to use Edu-Madi's website if you do not accept
-            all of the terms and conditions stated on this page.
+            By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use our Services. These Terms apply to all learners, instructors, and other users of the platform.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
-            2. License to Use Website
+            2. User Accounts
           </h2>
           <p className="mb-4">
-            Unless otherwise stated, PROMETHORA FINTECH SOLUTIONS PVT LTD and/or
-            its licensors own the intellectual property rights for all material
-            on Edu-Madi. All intellectual property rights are reserved.
+            To access certain features, you must create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You must provide accurate and complete information when creating an account and keep it updated.
           </p>
 
-          <h2 className="text-xl font-semibold mt-8 mb-4">3. User Account</h2>
+          <h2 className="text-xl font-semibold mt-8 mb-4">3. Course Enrollment and Access</h2>
           <p className="mb-4">
-            When you create an account with us, you guarantee that the
-            information you provide is accurate, complete, and current at all
-            times. Inaccurate, incomplete, or obsolete information may result in
-            the immediate termination of your account on the Service.
+            When you enroll in a course, you receive a limited, non-exclusive, non-transferable license to view the course content for personal, non-commercial, educational purposes. Course materials are protected by copyright and other intellectual property laws.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
-            4. Product Information
+            4. Academic Integrity
           </h2>
           <p className="mb-4">
-            We strive to provide accurate product descriptions and pricing.
-            However, we do not warrant that product descriptions or prices are
-            accurate, complete, reliable, current, or error-free.
+            You agree to complete all coursework with academic integrity. This means submitting only your own work, properly citing sources, and not engaging in any form of cheating or plagiarism. Violations may result in course failure or account termination.
+          </p>
+          
+          <h2 className="text-xl font-semibold mt-8 mb-4">
+            5. Payment and Refunds
+          </h2>
+          <p className="mb-4">
+            Course fees are due at the time of enrollment. We offer a 1-day refund policy from the date of purchase. To request a refund, please contact our support team. Once the refund period has passed, all sales are final.
+          </p>
+          
+          <h2 className="text-xl font-semibold mt-8 mb-4">
+            6. User Conduct
+          </h2>
+          <p className="mb-4">
+            You agree not to: share your login credentials, upload inappropriate content, harass other users, disrupt the learning environment, or use the Services for any illegal purpose. We reserve the right to terminate accounts that violate these terms.
+          </p>
+
+          <h2 className="text-xl font-semibold mt-8 mb-4">
+            7. Limitation of Liability
+          </h2>
+          <p className="mb-4">
+            Our Services are provided "as is" without warranties of any kind. We do not guarantee that the Services will be uninterrupted or error-free. To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, or consequential damages.
+          </p>
+          
+          <h2 className="text-xl font-semibold mt-8 mb-4">
+            8. Modifications to Terms
+          </h2>
+          <p className="mb-4">
+            We reserve the right to modify these Terms at any time. We will provide notice of material changes through our Services or via email. Your continued use of the Services after such modifications constitutes acceptance of the new Terms.
           </p>
 
           <h2 className="text-xl font-semibold mt-8 mb-4">
             Contact Information
           </h2>
           <p className="mb-4">
-            If you have any questions about these Terms and Conditions, please
-            contact us:
+            If you have any questions about these Terms and Conditions, please contact us:
           </p>
           <p className="mb-4">
-            PROMETHORA FINTECH SOLUTIONS PVT LTD
+            Paymadi Technologies LLP
             <br />
-            {/* Email: legal@ethora.com
-            <br /> */}
-            Phone:+919900077752
+            Email: support@paymadi.com
+            <br />
+            Phone: +91 9876543210
+          </p>
+          <p className="text-sm text-muted-foreground mt-8">
+            Last updated: May 27, 2025
           </p>
         </div>
-      </div>
-      <Footer />
+      </div>      
     </div>
   );
 };
