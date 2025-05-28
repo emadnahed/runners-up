@@ -20,6 +20,7 @@ import Terms from './pages/Terms';
 import Shipping from './pages/Shipping';
 import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
+import RefundPolicy from './pages/RefundPolicy';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import NotFound from './pages/NotFound';
@@ -123,6 +124,7 @@ function App() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/terms" element={<Terms />} />
+                        <Route path="/refundpolicy" element={<RefundPolicy />} />
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/courses" element={<Courses />} />
                         <Route path="/course/:id" element={<CourseDetails />} />

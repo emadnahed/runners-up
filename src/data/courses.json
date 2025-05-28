@@ -4,7 +4,7 @@
       "id": 1,
       "title": "100 Days of JavaScript with CodeKata",
       "description": "Master JavaScript through 100 days of practical coding challenges using CodeKata.",
-      "price": 62345.12,
+      "price": 6234.12,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/100daysofjavascriptusingcodekataenglish.avif"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "title": "3ds Max and V-ray – Advanced",
       "description": "Learn advanced techniques in 3ds Max and V-ray for creating stunning 3D visualizations.",
-      "price": 78456.78,
+      "price": 5845.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/3dsmaxandvrayadvancedenglish.avif"
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "title": "3ds Max and V-ray – Expert",
       "description": "Master expert-level skills in 3ds Max and V-ray for professional-grade 3D rendering.",
-      "price": 89234.56,
+      "price": 6721.89,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/3dsmaxandvrayadvancedenglish-1.avif"
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "title": "Adobe Firefly",
       "description": "Explore Adobe Firefly for AI-powered creative design and content generation.",
-      "price": 75689.23,
+      "price": 5123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/adobefirefly.avif"
     },
@@ -36,7 +36,7 @@
       "id": 5,
       "title": "Adobe Illustrator Foundations",
       "description": "Learn the essentials of Adobe Illustrator for creating vector graphics and designs.",
-      "price": 67890.45,
+      "price": 6987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/adobeillustratorfoundations.avif"
     },
@@ -44,7 +44,7 @@
       "id": 6,
       "title": "Adobe Photoshop",
       "description": "Master Adobe Photoshop for professional photo editing and graphic design.",
-      "price": 82134.67,
+      "price": 5345.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/adobephotoshopenglish.avif"
     },
@@ -52,7 +52,7 @@
       "id": 7,
       "title": "Advanced Business Finance",
       "description": "Learn advanced financial strategies for business decision-making and growth.",
-      "price": 73456.89,
+      "price": 6456.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancedbusinessfinance.avif"
     },
@@ -60,7 +60,7 @@
       "id": 8,
       "title": "Advanced Cyber Security",
       "description": "Gain expertise in advanced cybersecurity techniques to protect digital assets.",
-      "price": 86543.21,
+      "price": 5890.12,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancecybersecurity.avif"
     },
@@ -68,7 +68,7 @@
       "id": 9,
       "title": "Advanced Cyber Security and Ethical Hacking",
       "description": "Master cybersecurity and ethical hacking to secure systems and identify vulnerabilities.",
-      "price": 79876.54,
+      "price": 6789.34,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/cyber_security_advanced_english.avif"
     },
@@ -76,7 +76,7 @@
       "id": 10,
       "title": "Advanced Data Visualization using Power BI",
       "description": "Create advanced data visualizations using Power BI for actionable insights.",
-      "price": 87654.32,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advanceddatavisualisationusingpowerbienglish.avif"
     },
@@ -84,7 +84,7 @@
       "id": 11,
       "title": "Advanced Ethical Hacking",
       "description": "Learn advanced ethical hacking techniques to secure systems and networks.",
-      "price": 54321.98,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/ethical_ad_en.avif"
     },
@@ -92,7 +92,7 @@
       "id": 12,
       "title": "Advanced JavaScript",
       "description": "Deep dive into advanced JavaScript concepts for building dynamic web applications.",
-      "price": 71234.56,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancedjavascriptenglish.avif"
     },
@@ -100,7 +100,7 @@
       "id": 13,
       "title": "Advanced RPA",
       "description": "Master Robotic Process Automation (RPA) for automating complex business processes.",
-      "price": 68901.23,
+      "price": 6890.12,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancedrpaenglish.avif"
     },
@@ -108,7 +108,7 @@
       "id": 14,
       "title": "Advanced RPA: Hands-On Projects",
       "description": "Apply RPA skills through hands-on projects to automate real-world tasks.",
-      "price": 56789.01,
+      "price": 5432.10,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancedrpaprojectcourseenglish.avif"
     },
@@ -116,7 +116,7 @@
       "id": 15,
       "title": "Advanced Selenium with Java",
       "description": "Learn advanced Selenium with Java for automating web application testing.",
-      "price": 51234.67,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/seleniumAdvancedEng.avif"
     },
@@ -124,7 +124,7 @@
       "id": 16,
       "title": "Advanced Verification and UVM",
       "description": "Master advanced verification techniques using Universal Verification Methodology (UVM).",
-      "price": 64567.89,
+      "price": 6345.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/advancedverificationanduvm.avif"
     },
@@ -132,7 +132,7 @@
       "id": 17,
       "title": "Agile Fundamentals",
       "description": "Learn the core principles of Agile methodology for effective project management.",
-      "price": 78901.23,
+      "price": 5789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/agileenglish.avif"
     },
@@ -140,7 +140,7 @@
       "id": 18,
       "title": "Agile Transformation Management",
       "description": "Master strategies for managing Agile transformations in organizations.",
-      "price": 53456.78,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/agiletransformationmanagement.avif"
     },
@@ -148,7 +148,7 @@
       "id": 19,
       "title": "AI Fundamentals",
       "description": "Explore the basics of artificial intelligence and its applications.",
-      "price": 87654.32,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/aifundamentalsenglish.avif"
     },
@@ -156,7 +156,7 @@
       "id": 20,
       "title": "Ajax",
       "description": "Learn Ajax for creating dynamic and interactive web applications.",
-      "price": 59876.54,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/ajaxenglish.avif"
     },
@@ -164,7 +164,7 @@
       "id": 21,
       "title": "Altium",
       "description": "Master Altium Designer for professional PCB design and electronics.",
-      "price": 52345.67,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/altium.avif"
     },
@@ -172,7 +172,7 @@
       "id": 22,
       "title": "Angular Advanced",
       "description": "Learn advanced Angular techniques for building scalable web applications.",
-      "price": 73456.78,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/angularadvanced.avif"
     },
@@ -180,7 +180,7 @@
       "id": 23,
       "title": "Angular Basics",
       "description": "Get started with Angular to build dynamic single-page applications.",
-      "price": 78901.23,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/angularbasics.avif"
     },
@@ -188,7 +188,7 @@
       "id": 24,
       "title": "Angular Unit Testing",
       "description": "Learn unit testing in Angular to ensure robust application development.",
-      "price": 64567.89,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/angular.avif"
     },
@@ -196,7 +196,7 @@
       "id": 25,
       "title": "Apache Cassandra With Python",
       "description": "Learn to manage big data with Apache Cassandra and Python integration.",
-      "price": 51234.56,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/python-1.avif"
     },
@@ -204,7 +204,7 @@
       "id": 26,
       "title": "Application Development Using Microservices",
       "description": "Build scalable applications using microservices and serverless architectures.",
-      "price": 82134.67,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/applicationdevelopmentusingmicroservicesserverlessenglish.avif"
     },
@@ -212,7 +212,7 @@
       "id": 27,
       "title": "Applied NLP Project",
       "description": "Work on real-world NLP projects to master natural language processing.",
-      "price": 87654.32,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/appliednlpproject.avif"
     },
@@ -220,7 +220,7 @@
       "id": 28,
       "title": "Aptitude",
       "description": "Develop problem-solving and aptitude skills for technical interviews.",
-      "price": 83456.78,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/aptitude.avif"
     },
@@ -228,7 +228,7 @@
       "id": 29,
       "title": "Architectural Definition (ISA)",
       "description": "Learn Instruction Set Architecture (ISA) for designing efficient processors.",
-      "price": 89234.56,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/architecturaldefinitionisa.avif"
     },
@@ -236,7 +236,7 @@
       "id": 30,
       "title": "Arduino",
       "description": "Master Arduino programming for building electronics and IoT projects.",
-      "price": 67890.45,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/arduinoenglish.avif"
     },
@@ -244,7 +244,7 @@
       "id": 31,
       "title": "Art of Electronics: Analog Electronics Part 1",
       "description": "Learn the fundamentals of analog electronics, focusing on semiconductor diodes.",
-      "price": 75689.23,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/artofelectronicsanalogelectronicspart1semiconductordiodesenglish.avif"
     },
@@ -252,7 +252,7 @@
       "id": 32,
       "title": "Art of Electronics: Digital Electronics Part 1",
       "description": "Explore the basics of digital electronics for circuit design.",
-      "price": 86543.21,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/artofelectronicsdigitalelectronicspart1.avif"
     },
@@ -260,7 +260,7 @@
       "id": 33,
       "title": "ASIC Verification",
       "description": "Learn ASIC verification techniques for designing reliable integrated circuits.",
-      "price": 73456.78,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/asicverification.avif"
     },
@@ -268,7 +268,7 @@
       "id": 34,
       "title": "AutoCAD Mechanical",
       "description": "Master AutoCAD for mechanical design and engineering drawings.",
-      "price": 68901.23,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/autocadmechanicalenglish.avif"
     },
@@ -276,7 +276,7 @@
       "id": 35,
       "title": "Autodesk Inventor for Professional",
       "description": "Learn Autodesk Inventor for professional 3D mechanical design and simulation.",
-      "price": 82134.67,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/autodeskinventorprofessionalenglish.avif"
     },
@@ -284,7 +284,7 @@
       "id": 36,
       "title": "Automating AWS with Python and Boto3",
       "description": "Automate AWS services using Python and the Boto3 library.",
-      "price": 64567.89,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/automatingawswithpythonandboto3english.avif"
     },
@@ -292,7 +292,7 @@
       "id": 37,
       "title": "AWS Account, Navigation & Instances",
       "description": "Learn to manage AWS accounts, navigation, and instance setup.",
-      "price": 59876.54,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsaccountnavigationinstances.avif"
     },
@@ -300,7 +300,7 @@
       "id": 38,
       "title": "AWS Billing, Key Management & Security",
       "description": "Master AWS billing, key management, and security best practices.",
-      "price": 87654.32,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsbillingkeymanagementsecurity.avif"
     },
@@ -308,7 +308,7 @@
       "id": 39,
       "title": "AWS CloudFormation",
       "description": "Learn AWS CloudFormation for infrastructure-as-code deployment.",
-      "price": 89234.56,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/aws.avif"
     },
@@ -316,7 +316,7 @@
       "id": 40,
       "title": "AWS Fundamentals",
       "description": "Get started with AWS cloud services and core concepts.",
-      "price": 75689.23,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsfundamentalsinfrench.avif"
     },
@@ -324,7 +324,7 @@
       "id": 41,
       "title": "AWS Infrastructure – Advanced",
       "description": "Learn advanced AWS infrastructure management and optimization techniques.",
-      "price": 78901.23,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsinfrastructureadvancedenglish.avif"
     },
@@ -332,7 +332,7 @@
       "id": 42,
       "title": "AWS Infrastructure – Intermediate",
       "description": "Build intermediate-level skills in AWS infrastructure management.",
-      "price": 67890.45,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsinfrastructureintermediateenglish.avif"
     },
@@ -340,7 +340,7 @@
       "id": 43,
       "title": "AWS Infrastructure for Beginners",
       "description": "Introduction to AWS infrastructure for beginners.",
-      "price": 71234.56,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsinfrastructurebeginnersenglish.avif"
     },
@@ -348,7 +348,7 @@
       "id": 44,
       "title": "AWS Lambda",
       "description": "Master AWS Lambda for serverless computing and automation.",
-      "price": 56789.01,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsinfrastructureforbeginnersintamil-1.avif"
     },
@@ -356,7 +356,7 @@
       "id": 45,
       "title": "AWS Load Balance",
       "description": "Learn to configure and manage AWS load balancing for scalability.",
-      "price": 64567.89,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awsloadbalance.avif"
     },
@@ -364,7 +364,7 @@
       "id": 46,
       "title": "AWS Security and Management",
       "description": "Learn AWS security practices and management tools for cloud environments.",
-      "price": 67890.45,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/awssecurityandmanagementenglish.avif"
     },
@@ -372,7 +372,7 @@
       "id": 47,
       "title": "AZ-104",
       "description": "Prepare for the Microsoft Azure Administrator (AZ-104) certification.",
-      "price": 83456.78,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/az104english.avif"
     },
@@ -380,7 +380,7 @@
       "id": 48,
       "title": "AZ 500: Data and App Security",
       "description": "Learn data and application security for the AZ-500 certification.",
-      "price": 82134.67,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/az500dataandappsecurityenglish.avif"
     },
@@ -388,7 +388,7 @@
       "id": 49,
       "title": "AZ 500: Identity and Access Management",
       "description": "Master identity and access management for AZ-500 certification.",
-      "price": 75689.23,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/microsoftazuresecuritytechnologiesaz500partienglish.avif"
     },
@@ -396,7 +396,7 @@
       "id": 50,
       "title": "AZ 500: Platform Security",
       "description": "Learn platform security techniques for the AZ-500 certification.",
-      "price": 64567.89,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/az500platformsecurityenglish.avif"
     },
@@ -404,7 +404,7 @@
       "id": 51,
       "title": "AZ 500: Security Operations",
       "description": "Master security operations for the AZ-500 certification.",
-      "price": 56789.01,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/az500securityoperationsenglish.avif"
     },
@@ -412,7 +412,7 @@
       "id": 52,
       "title": "Azure DevOps",
       "description": "Learn Azure DevOps for CI/CD and agile development workflows.",
-      "price": 62345.12,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/azuredevopsenglish.avif"
     },
@@ -420,7 +420,7 @@
       "id": 53,
       "title": "Azure Solution Architect Part – 1",
       "description": "Prepare for the Azure Solutions Architect certification (Part 1).",
-      "price": 51234.56,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/azuresolutionarchitectpart1.avif"
     },
@@ -428,7 +428,7 @@
       "id": 54,
       "title": "Azure Synapse Analytics",
       "description": "Master Azure Synapse Analytics for big data and analytics solutions.",
-      "price": 83456.78,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/azuresynapseanalytics.avif"
     },
@@ -436,7 +436,7 @@
       "id": 55,
       "title": "Balsamiq",
       "description": "Learn Balsamiq for creating wireframes and prototyping user interfaces.",
-      "price": 87654.32,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/balsamiq.avif"
     },
@@ -444,7 +444,7 @@
       "id": 56,
       "title": "Basics of AWS Cloud Computing",
       "description": "Introduction to AWS cloud computing fundamentals and services.",
-      "price": 78901.23,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/basicsofawscloudcomputing.avif"
     },
@@ -452,7 +452,7 @@
       "id": 57,
       "title": "Basics of Computer",
       "description": "Learn the fundamentals of computer operations and software usage.",
-      "price": 62345.12,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/basicsofcomputer.avif"
     },
@@ -460,7 +460,7 @@
       "id": 58,
       "title": "Basics of PostgreSQL",
       "description": "Get started with PostgreSQL for managing relational databases.",
-      "price": 75689.23,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/basicsofpostgresql.avif"
     },
@@ -468,7 +468,7 @@
       "id": 59,
       "title": "Basics of Quantum Computing",
       "description": "Introduction to quantum computing concepts and applications.",
-      "price": 59876.54,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/physicsforquantumcomputingenglish.avif"
     },
@@ -476,7 +476,7 @@
       "id": 60,
       "title": "Become an iOS Developer from Scratch",
       "description": "Learn iOS development from scratch to build mobile applications.",
-      "price": 71234.56,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/becomeaniosdeveloperfromscratch.avif"
     },
@@ -484,7 +484,7 @@
       "id": 61,
       "title": "Blockchain",
       "description": "Learn blockchain technology for decentralized applications and cryptocurrencies.",
-      "price": 64567.89,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/blockchain-1.avif"
     },
@@ -492,7 +492,7 @@
       "id": 62,
       "title": "Bootstrap",
       "description": "Master Bootstrap for building responsive and modern web interfaces.",
-      "price": 73456.78,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/bootstrapenglish.avif"
     },
@@ -500,7 +500,7 @@
       "id": 63,
       "title": "Brand Identity Design",
       "description": "Learn to create compelling brand identities for businesses.",
-      "price": 67890.45,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/brandidentitydesign.avif"
     },
@@ -508,7 +508,7 @@
       "id": 64,
       "title": "Building REST APIs using .NET Core",
       "description": "Learn to build RESTful APIs using .NET Core for web applications.",
-      "price": 56789.01,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/microcontroller.avif"
     },
@@ -516,7 +516,7 @@
       "id": 65,
       "title": "Building RESTful APIs with Redis and Python",
       "description": "Create RESTful APIs using Redis and Python for high-performance applications.",
-      "price": 59876.54,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/microcontroller.avif"
     },
@@ -524,7 +524,7 @@
       "id": 66,
       "title": "Business Communication",
       "description": "Develop effective business communication skills for professional success.",
-      "price": 82134.67,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/businesscommunicationenglish.avif"
     },
@@ -532,7 +532,7 @@
       "id": 67,
       "title": "Business Finance",
       "description": "Learn the fundamentals of business finance for strategic decision-making.",
-      "price": 75689.23,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/businesscommunicationenglish.avif"
     },
@@ -540,7 +540,7 @@
       "id": 68,
       "title": "Business Intelligence Analyst",
       "description": "Master business intelligence tools for data-driven decision-making.",
-      "price": 87654.32,
+      "price": 5345.67,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/businessintelligenceanalystenglish.avif"
     },
@@ -548,7 +548,7 @@
       "id": 69,
       "title": "Introduction to FPGA Architectures",
       "description": "Learn the basics of FPGA architectures for hardware design.",
-      "price": 59876.54,
+      "price": 6890.23,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/introductiontofpgaarchitectures.avif"
     },
@@ -556,7 +556,7 @@
       "id": 70,
       "title": "Meta Ads",
       "description": "Learn to create and manage effective Meta advertising campaigns.",
-      "price": 51234.56,
+      "price": 5678.90,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/metaads.avif"
     },
@@ -564,7 +564,7 @@
       "id": 71,
       "title": "Node.js",
       "description": "Master Node.js for building scalable server-side applications.",
-      "price": 56789.01,
+      "price": 6456.78,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/nodejsenglish.avif"
     },
@@ -572,7 +572,7 @@
       "id": 72,
       "title": "Python Zero to Hero",
       "description": "Go from beginner to expert in Python programming with hands-on projects.",
-      "price": 62345.12,
+      "price": 5234.56,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/python.avif"
     },
@@ -580,7 +580,7 @@
       "id": 73,
       "title": "Time Series Analysis and Forecasting",
       "description": "Learn time series analysis and forecasting for data-driven predictions.",
-      "price": 89234.56,
+      "price": 5987.65,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/timeseriesanalysisandforecasting.avif"
     },
@@ -588,7 +588,7 @@
       "id": 74,
       "title": "Web Development with Python Flask",
       "description": "Build dynamic web applications using Python and the Flask framework.",
-      "price": 71234.56,
+      "price": 6789.01,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/pythonflasktamil.avif"
     },
@@ -596,7 +596,7 @@
       "id": 75,
       "title": "WordPress",
       "description": "Learn WordPress for creating and managing professional websites.",
-      "price": 78901.23,
+      "price": 6123.45,
       "rating": 4.5,
       "image": "https://slpe-edu.com/wp-content/uploads/2025/04/wordpresshindi.avif"
     },
@@ -604,7 +604,7 @@
       "id": 76,
       "title": "Introduction to Web Development",
       "description": "Learn the fundamentals of web development with HTML, CSS, and JavaScript. Build responsive websites from scratch.",
-      "price": 54321.98,
+      "price": 5345.67,
       "rating": 4.7,
       "image": "https://images.unsplash.com/photo-1498050108023-c5249f9dfcd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
     },
@@ -612,7 +612,7 @@
       "id": 77,
       "title": "Data Science Fundamentals",
       "description": "Master the basics of data science, including Python, pandas, and data visualization techniques.",
-      "price": 59876.54,
+      "price": 6890.23,
       "rating": 4.8,
       "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     },
@@ -620,7 +620,7 @@
       "id": 78,
       "title": "Mobile App Development with React Native",
       "description": "Build cross-platform mobile applications using React Native and JavaScript.",
-      "price": 64567.89,
+      "price": 5678.90,
       "rating": 4.6,
       "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     },
@@ -628,15 +628,15 @@
       "id": 79,
       "title": "Digital Marketing Masterclass",
       "description": "Learn essential digital marketing strategies including SEO, social media, and content marketing.",
-      "price": 51234.56,
-      "rating": 4.5,
+      "price": 6456.78,
+      "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1904&q=80"
     },
     {
       "id": 80,
       "title": "UI/UX Design Principles",
       "description": "Master the principles of user interface and experience design for modern applications.",
-      "price": 56789.01,
+      "price": 85000,
       "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     },
@@ -644,24 +644,24 @@
       "id": 81,
       "title": "Python for Data Analysis",
       "description": "Learn how to analyze and visualize data using Python's powerful data science libraries.",
-      "price": 54321.98,
-      "rating": 4.7,
+      "price": 5987.65,
+      "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     },
     {
       "id": 82,
       "title": "Business Analytics Fundamentals",
       "description": "Learn how to make data-driven business decisions using analytics tools and techniques.",
-      "price": 59876.54,
-      "rating": 4.6,
+      "price": 6789.01,
+      "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.3.1&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
     },
     {
       "id": 83,
       "title": "Machine Learning for Beginners",
       "description": "Introduction to machine learning concepts and algorithms for absolute beginners.",
-      "price": 64567.89,
-      "rating": 4.8,
+      "price": 6123.45,
+      "rating": 4.9,
       "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
     }
   ]

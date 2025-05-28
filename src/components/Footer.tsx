@@ -52,6 +52,11 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                   Terms and Conditions
                 </Link>
               </li>
+              <li>
+                <Link to="/refundpolicy" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
+                  Refunds and Cancellation Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
