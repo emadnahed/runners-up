@@ -41,17 +41,17 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
                 <Link to="/contact" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
                   Contact
                 </Link>
-              </li>      
+              </li>
               <li>
                 <Link to="/privacy" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
                   Privacy Policy
                 </Link>
-              </li> 
+              </li>
               <li>
                 <Link to="/terms" className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
-                  Terms and Conditions  
+                  Terms and Conditions
                 </Link>
-              </li>                   
+              </li>
             </ul>
           </div>
 
@@ -62,42 +62,46 @@ const Footer: React.FC<FooterProps> = ({ className = '' }) => {
               <div className="flex items-start">
                 <span className="font-medium text-gray-700 w-16">Phone:</span>
                 <a href="tel:++919900077752" className="text-gray-600 hover:text-blue-600 transition-colors duration-200 ease-in-out">
-                +91 99000 77752
+                  +91 99000 77752
                 </a>
               </div>
               <div className="flex items-start">
                 <span className="font-medium text-gray-700 w-16">Address:</span>
                 <address className="not-italic">
-                  21ST STAGE, 4TH BLOCK, HBR LAYOUT,<br />
-                  Kalyananagar, Bangalore North,<br />
-                  Bangalore - 560043, Karnataka
+                  Building No./Flat No.: No 37/1<br />
+                  Road/Street: 1st Main Road M M Layout<br />
+                  Locality/Sub Locality: Kavalbysandra<br />
+                  City/Town/Village: Bengaluru<br />
+                  District: Bengaluru Urban<br />
+                  State: Karnataka<br />
+                  PIN Code: 560032
                 </address>
               </div>
-              
+
               <div className="pt-2">
                 <h4 className="text-sm font-semibold text-gray-900 mb-3">Follow Us</h4>
                 <div className="flex space-x-4">
-                  <a 
-                    href="https://twitter.com" 
-                    target="_blank" 
+                  <a
+                    href="https://twitter.com"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
                     aria-label="Twitter"
                   >
                     <Twitter className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="https://facebook.com" 
-                    target="_blank" 
+                  <a
+                    href="https://facebook.com"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
                     aria-label="Facebook"
                   >
                     <Facebook className="h-5 w-5" />
                   </a>
-                  <a 
-                    href="https://instagram.com" 
-                    target="_blank" 
+                  <a
+                    href="https://instagram.com"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-pink-500 transition-colors duration-200 ease-in-out"
                     aria-label="Instagram"

@@ -38,7 +38,7 @@ const About = () => {
                 to bring you the latest and most innovative courses.
               </li>
               <li className="mb-2">
-                <strong>Customer Service:</strong> We are committed to providing 
+                <strong>Customer Service:</strong> We are committed to providing
                 exceptional customer service and support throughout your
                 education journey.
               </li>
@@ -53,9 +53,15 @@ const About = () => {
               Contact Information
             </h2>
             <p className="mb-2">
-              Paymadi Technologies LLP
+              
               <br />
-              21ST STAGE, 4TH BLOCK,HBR LAYOUT, Kalyananagar, Bangalore North, Bangalore- 560043, Karnataka
+              Building No./Flat No.: No 37/1
+              Road/Street: 1st Main Road M M Layout
+              Locality/Sub Locality: Kavalbysandra
+              City/Town/Village: Bengaluru
+              District: Bengaluru Urban
+              State: Karnataka
+              PIN Code: 560032
             </p>
             <p className="mb-2">
               {/* Email: contact@ethora.com
@@ -65,7 +71,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      
+
     </div>
   );
 };
