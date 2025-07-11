@@ -14,13 +14,57 @@ const CourseDetails = () => {
   // Find the course with the matching ID
   const course = coursesData.courses.find(c => c.id.toString() === id);
   
-  const handleEnroll = () => {
-    // In a real app, this would redirect to checkout or add to cart
-    toast({
-      title: 'Enrollment Started!',
-      description: `You've successfully enrolled in ${course?.title}`,
-      variant: 'default',
-    });
+const handleEnroll = async () => {
+    if (!course) return;
+    try {
+      toast({ title: 'Creating Order...', description: 'Please wait while we create your order.', variant: 'default' });
+      const response = await fetch('https://test.paymadi.com/v1/api/pay/payment', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJjcmVhdGVkVGltZSI6MTc0ODUwMzk4MDA5MCwiZXhwaXJ5VGltZSI6MTc0ODUwNDAxMDA5MCwiY2xpZW50SWQiOiIiLCJ1c2VyVHlwZSI6IkFETUlOIiwidXNlcklkIjoiUEFZTUFESTI0OTEiLCJtb2JpbGVObyI6IjgwNTA0OTkwMTAifQ.ZBJ7CIfQ4SoLTxbW0xjsgtr3S8J1bNEtKWKcIMufudk'
+        },
+        body: JSON.stringify({
+          currency: 'INR',
+          devicInfo: {
+            deviceId: 'unknown',
+            latitude: 13.022767041136825,
+            longitude: 77.61033784715508
+          },
+          payeeId: '66ed3e907e99ab545c9a4847',
+          paymentType: 'VENDOR_PAYMENT',
+          paymentTypeId: 1,
+          userId: 'PAYMADI1716485053361',
+          categoryType: 'EMPTY',
+          remarks: 'Purchase',
+          selectedCardType: 'Credit Card',
+          selectedCardBank: 'Other Banks',
+          selectedCardTypeId: '66b6ef3511ef6f3f1d7665df',
+          selectedBankTypeId: '66b6f0be11ef6f3f1d7665e1',
+          settlementType: 'REGULAR_PAY',
+          settlementTypeId: 3,
+          gstFee: 18,
+          serviceFee: 1.95,
+          priceBreakUp: {
+            feeBearer: 'user',
+            serviceFeeAmount: '234',
+            gstAmount: '42.12',
+            settlementAmount: '12000',
+            totalAmount: 12276
+          }
+        })
+      });
+      const apiResult = await response.json();
+      if (apiResult && apiResult.data) {
+        const data = JSON.parse(apiResult.data);
+        navigate(`/orders/PM-CF-001?sessionId=${encodeURIComponent(data.token)}&orderId=${encodeURIComponent(data.referenceId)}`);
+      } else {
+        toast({ title: 'Order Creation Failed', description: apiResult?.message || 'Could not create order.', variant: 'destructive' });
+      }
+    } catch (err) {
+      toast({ title: 'Order Creation Failed', description: 'An error occurred while creating the order.', variant: 'destructive' });
+    }
   };
 
   const handleAddToWishlist = () => {

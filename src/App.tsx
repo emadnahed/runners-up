@@ -57,6 +57,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 // Component to handle scroll to top on route change
 import { useLocation } from 'react-router-dom';
+import PaymentCashfree from './pages/PaymentCashfree';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -128,6 +129,7 @@ function App() {
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/courses" element={<Courses />} />
                         <Route path="/course/:id" element={<CourseDetails />} />
+                        <Route path="/orders/:id" element={<PaymentCashfree />} />
                         
                         {/* Redirect old login route */}
                         <Route path="/login" element={<Navigate to="/sign-in" replace />} />
