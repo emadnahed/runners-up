@@ -3,7 +3,13 @@ import { Toaster } from '@/components/ui/toaster';
 import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from 'react-router-dom';
 import { CartProvider } from './contexts/CartContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ClerkProvider } from '@clerk/clerk-react';
@@ -30,7 +36,9 @@ import Footer from './components/Footer';
 const clerkPubKey = import.meta.env.VITE_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 if (!clerkPubKey) {
-  throw new Error('Missing VITE_PUBLIC_CLERK_PUBLISHABLE_KEY environment variable');
+  throw new Error(
+    'Missing VITE_PUBLIC_CLERK_PUBLISHABLE_KEY environment variable'
+  );
 }
 
 // Create a wrapper component for protected routes
@@ -81,7 +89,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <React.StrictMode>
-      <ClerkProvider 
+      <ClerkProvider
         publishableKey={clerkPubKey}
         appearance={{
           variables: {
@@ -107,40 +115,55 @@ function App() {
                       <Routes>
                         <Route path="/" element={<Index />} />
                         <Route path="/marketplace" element={<Marketplace />} />
-                        <Route path="/product/:id" element={<ProductDetails />} />
+                        <Route
+                          path="/product/:id"
+                          element={<ProductDetails />}
+                        />
                         <Route path="/cart" element={<Cart />} />
-                        
+
                         {/* Auth Routes */}
                         <Route path="/sign-in" element={<SignInPage />} />
                         <Route path="/sign-up" element={<SignUpPage />} />
-                        
+
                         {/* Protected Routes */}
-                        <Route path="/profile" element={
-                          <ProtectedRoute>
-                            <Profile />
-                          </ProtectedRoute>
-                        } />
-                        
+                        <Route
+                          path="/profile"
+                          element={
+                            <ProtectedRoute>
+                              <Profile />
+                            </ProtectedRoute>
+                          }
+                        />
+
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/terms" element={<Terms />} />
-                        <Route path="/refundpolicy" element={<RefundPolicy />} />
+                        <Route
+                          path="/refundpolicy"
+                          element={<RefundPolicy />}
+                        />
                         <Route path="/shipping" element={<Shipping />} />
                         <Route path="/courses" element={<Courses />} />
                         <Route path="/course/:id" element={<CourseDetails />} />
-                        <Route path="/orders/:id" element={<PaymentCashfree />} />
-                        
+                        <Route
+                          path="/custom-order"
+                          element={<PaymentCashfree />}
+                        />
+
                         {/* Redirect old login route */}
-                        <Route path="/login" element={<Navigate to="/sign-in" replace />} />
-                        
+                        <Route
+                          path="/login"
+                          element={<Navigate to="/sign-in" replace />}
+                        />
+
                         {/* 404 - Not Found */}
                         <Route path="*" element={<NotFound />} />
-                        </Routes>
+                      </Routes>
                     </main>
-                    <div className="mt-auto">
+                    {/* <div className="mt-auto">
                       <Footer />
-                    </div>
+                    </div> */}
                   </div>
                 </BrowserRouter>
               </CartProvider>

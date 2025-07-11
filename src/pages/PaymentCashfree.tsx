@@ -1,56 +1,49 @@
-import React, { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import React, { useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { load } from '@cashfreepayments/cashfree-js';
 
-declare global {
-  interface Window {
-    cashfree?: any;
-  }
-}
+const app_env = import.meta.env.VITE_PUBLIC_APP_ENV;
 
 const PaymentCashfree: React.FC = () => {
-  const location = useLocation();
-  const { id: orderId } = useParams<{ id: string }>();
+  const [searchParams] = useSearchParams();
+  const sessionId = searchParams.get('sessionId');
+  const orderId = searchParams.get('orderId');
 
-  const getPaymentSessionId = () => {
-    const params = new URLSearchParams(location.search);
-    return params.get("sessionId");
+  let cashfree;
+  const initializeSDK = async function () {
+    cashfree = await load({
+      mode: app_env === 'production' ? 'production' : 'sandbox',
+    });
   };
 
-  useEffect(() => {
-    const paymentSessionId = getPaymentSessionId();
-    if (!paymentSessionId) {
-      alert("Missing paymentSessionId in URL query params.");
-      return;
+  const doPayment = useCallback(async () => {
+    console.log('starting payment', sessionId, cashfree);
+    const checkoutOptions = {
+      paymentSessionId: sessionId,
+      redirectTarget: '_self',
+    };
+    cashfree.checkout(checkoutOptions);
+  }, [sessionId, cashfree]);
+
+  initializeSDK().then(() => {
+    console.log('SDK initialized', cashfree);
+    if (sessionId && cashfree && orderId) {
+      doPayment();
     }
-    if (!window.cashfree) {
-      // Wait for SDK to load, then try again
-      const interval = setInterval(() => {
-        if (window.cashfree) {
-          clearInterval(interval);
-          window.cashfree.checkout({
-            paymentSessionId,
-            returnUrl: `${window.location.origin}/orders/${orderId}/success`,
-            cancelUrl: `${window.location.origin}/orders/${orderId}/failure`,
-          });
-        }
-      }, 100);
-      return () => clearInterval(interval);
-    } else {
-      window.cashfree.checkout({
-        paymentSessionId,
-        returnUrl: `${window.location.origin}/orders/${orderId}/success`,
-        cancelUrl: `${window.location.origin}/orders/${orderId}/failure`,
-      });
-    }
-  }, [location, orderId]);
+  });
+
+  if (!sessionId || !orderId) {
+    return <div>Error: No payment session found</div>;
+  }
 
   return (
-    <div style={{ padding: 32, textAlign: "center" }}>
-      <h1>Pay with Cashfree</h1>
-      <p>Order ID: {orderId}</p>
-      <p>Loading payment gateway...</p>
+    <div className="row">
+      <p>Loading...</p>
     </div>
   );
 };
 
 export default PaymentCashfree;
+
+// http://localhost:8000/custom-order?sessionId=session_mS9HRtIHjgrfConWJJ4jMPBnp5ZILKdYrQSS3EE3jO-pl0KVJMF7i_QtLwPE_vRAruFo6HY89nAOEchr8Umsse8X5wQe8tFWYLIVOTpp4yZ6euT_MIfmBJLX4-LlFgpaymentpayment&orderId=PM-CF-1752240720699
+// https://edumadi.com/custom-order?sessionId=session_mS9HRtIHjgrfConWJJ4jMPBnp5ZILKdYrQSS3EE3jO-pl0KVJMF7i_QtLwPE_vRAruFo6HY89nAOEchr8Umsse8X5wQe8tFWYLIVOTpp4yZ6euT_MIfmBJLX4-LlFgpaymentpayment&orderId=PM-CF-1752240720699
