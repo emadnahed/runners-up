@@ -116,7 +116,7 @@ const handleEnroll = async () => {
                 alt={course.title}
                 className="w-full h-96 object-cover"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://via.placeholder.com/800x450?text=Course+Image';
+                  (e.target as HTMLImageElement).src = 'https://placehold.co/800x450?text=Course+Image';
                 }}
               />
               <div className="p-6">

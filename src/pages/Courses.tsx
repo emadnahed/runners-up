@@ -118,7 +118,7 @@ const Courses = () => {
                       alt={course.title}
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x225?text=Course+Image';
+                        (e.target as HTMLImageElement).src = 'https://placehold.co/400x225?text=Course+Image';
                       }}
                     />
                   </div>
