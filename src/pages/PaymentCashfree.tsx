@@ -70,59 +70,58 @@ const PaymentCashfree: React.FC = () => {
       setSelectedApp(appId);
 
       try {
-        // For WebView, send the UPI app selection to React Native
-        if (isInWebView && (window as any).ReactNativeWebView) {
-          const message = JSON.stringify({
-            type: 'UPI_INTENT',
-            appId: appId,
-            sessionId: sessionId,
-            orderId: orderId,
-          });
-          (window as any).ReactNativeWebView.postMessage(message);
+        // Create UPI app component using Cashfree SDK
+        const component = cashfreeRef.current.create('upiApp', {
+          values: {
+            upiApp: appId,
+          },
+        });
 
-          // Show loading state
-          setPaymentMessage(
-            'Opening ' + upiApps.find((a) => a.id === appId)?.name + '...'
-          );
-          setMessageType('');
-        } else {
-          // For regular mobile browsers, try to create payment link
-          try {
-            // Create UPI component and get payment URL
-            const component = cashfreeRef.current.create('upiApp', {
-              values: {
-                upiApp: appId,
-              },
+        // Get the payment session details
+        const returnUrl = isInWebView 
+          ? `${window.location.origin}/payment/cashfree/success?orderId=${orderId}`
+          : window.location.href;
+
+        // Use Cashfree's pay method which will generate the proper UPI intent URL
+        const result = await cashfreeRef.current.pay({
+          paymentMethod: component,
+          paymentSessionId: sessionId,
+          returnUrl: returnUrl,
+          redirect: 'if_required',
+        });
+
+        console.log('Cashfree pay result:', result);
+
+        // Check if we got a redirect URL (UPI intent URL)
+        if (result.url) {
+          if (isInWebView && (window as any).ReactNativeWebView) {
+            // Send the UPI URL to React Native
+            const message = JSON.stringify({
+              type: 'UPI_INTENT_URL',
+              appId: appId,
+              url: result.url,
+              sessionId: sessionId,
+              orderId: orderId,
             });
-
-            // Try to get the payment URL through the pay method
-            const returnUrl =
-              window.location.origin +
-              `/payment/cashfree/success?orderId=${orderId}`;
-
-            const result = await cashfreeRef.current.pay({
-              paymentMethod: component,
-              paymentSessionId: sessionId,
-              returnUrl: returnUrl,
-              redirect: 'if_required',
-            });
-
-            if (result.error) {
-              setPaymentMessage(result.error.message || 'Payment failed');
-              setMessageType('error');
-            } else if (result.paymentDetails) {
-              setPaymentMessage('Payment initiated');
-              setMessageType('success');
-            }
-          } catch (error: any) {
-            console.error('Payment error:', error);
-            setPaymentMessage(error?.message || 'Payment processing failed');
-            setMessageType('error');
+            (window as any).ReactNativeWebView.postMessage(message);
+            
+            setPaymentMessage(
+              'Opening ' + upiApps.find((a) => a.id === appId)?.name + '...'
+            );
+          } else {
+            // For mobile browsers, directly open the URL
+            window.location.href = result.url;
           }
+        } else if (result.error) {
+          setPaymentMessage(result.error.message || 'Payment failed');
+          setMessageType('error');
+        } else if (result.paymentDetails) {
+          setPaymentMessage('Payment initiated');
+          setMessageType('success');
         }
       } catch (error: any) {
         console.error('UPI Intent error:', error);
-        setPaymentMessage('Failed to open UPI app');
+        setPaymentMessage(error?.message || 'Failed to process payment');
         setMessageType('error');
       } finally {
         setIsProcessing(false);
