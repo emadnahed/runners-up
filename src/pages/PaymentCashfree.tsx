@@ -43,7 +43,8 @@ const PaymentCashfree: React.FC = () => {
   const initializeSDK = useCallback(async () => {
     try {
       const cashfree = await load({
-        mode: app_env === 'production' ? 'production' : 'sandbox',
+        // mode: app_env === 'production' ? 'production' : 'sandbox',
+        mode: 'sandbox',
       });
       cashfreeRef.current = cashfree;
       console.log('Cashfree SDK initialized');
