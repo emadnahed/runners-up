@@ -14,7 +14,7 @@ const PaymentCashfree: React.FC = () => {
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get('sessionId');
   const orderId = searchParams.get('orderId');
-  
+
   const [isLoading, setIsLoading] = useState(true);
   const [paymentMessage, setPaymentMessage] = useState('');
   const [messageType, setMessageType] = useState<'error' | 'success' | ''>('');
@@ -35,8 +35,9 @@ const PaymentCashfree: React.FC = () => {
     // Check if we're in a WebView (React Native)
     const checkWebView = () => {
       const userAgent = navigator.userAgent || '';
-      const isRNWebView = userAgent.includes('ReactNative') || 
-                          typeof (window as any).ReactNativeWebView !== 'undefined';
+      const isRNWebView =
+        userAgent.includes('ReactNative') ||
+        typeof (window as any).ReactNativeWebView !== 'undefined';
       setIsInWebView(isRNWebView);
       console.log('WebView detection:', { isRNWebView, userAgent });
     };
@@ -46,7 +47,7 @@ const PaymentCashfree: React.FC = () => {
   const initializeSDK = useCallback(async () => {
     try {
       const cashfree = await load({
-        mode: 'sandbox', // Force sandbox mode for now
+        mode: app_env,
       });
       cashfreeRef.current = cashfree;
       console.log('Cashfree SDK initialized');
@@ -59,74 +60,81 @@ const PaymentCashfree: React.FC = () => {
     }
   }, []);
 
-  const handleUpiIntent = useCallback(async (appId: string) => {
-    if (!sessionId || !cashfreeRef.current || isProcessing) return;
+  const handleUpiIntent = useCallback(
+    async (appId: string) => {
+      if (!sessionId || !cashfreeRef.current || isProcessing) return;
 
-    setIsProcessing(true);
-    setPaymentMessage('');
-    setMessageType('');
-    setSelectedApp(appId);
+      setIsProcessing(true);
+      setPaymentMessage('');
+      setMessageType('');
+      setSelectedApp(appId);
 
-    try {
-      // For WebView, send the UPI app selection to React Native
-      if (isInWebView && (window as any).ReactNativeWebView) {
-        const message = JSON.stringify({
-          type: 'UPI_INTENT',
-          appId: appId,
-          sessionId: sessionId,
-          orderId: orderId
-        });
-        (window as any).ReactNativeWebView.postMessage(message);
-        
-        // Show loading state
-        setPaymentMessage('Opening ' + upiApps.find(a => a.id === appId)?.name + '...');
-        setMessageType('');
-      } else {
-        // For regular mobile browsers, try to create payment link
-        try {
-          // Create UPI component and get payment URL
-          const component = cashfreeRef.current.create('upiApp', {
-            values: {
-              upiApp: appId,
-            },
+      try {
+        // For WebView, send the UPI app selection to React Native
+        if (isInWebView && (window as any).ReactNativeWebView) {
+          const message = JSON.stringify({
+            type: 'UPI_INTENT',
+            appId: appId,
+            sessionId: sessionId,
+            orderId: orderId,
           });
+          (window as any).ReactNativeWebView.postMessage(message);
 
-          // Try to get the payment URL through the pay method
-          const returnUrl = window.location.origin + `/payment/cashfree/success?orderId=${orderId}`;
-          
-          const result = await cashfreeRef.current.pay({
-            paymentMethod: component,
-            paymentSessionId: sessionId,
-            returnUrl: returnUrl,
-            redirect: 'if_required',
-          });
+          // Show loading state
+          setPaymentMessage(
+            'Opening ' + upiApps.find((a) => a.id === appId)?.name + '...'
+          );
+          setMessageType('');
+        } else {
+          // For regular mobile browsers, try to create payment link
+          try {
+            // Create UPI component and get payment URL
+            const component = cashfreeRef.current.create('upiApp', {
+              values: {
+                upiApp: appId,
+              },
+            });
 
-          if (result.error) {
-            setPaymentMessage(result.error.message || 'Payment failed');
+            // Try to get the payment URL through the pay method
+            const returnUrl =
+              window.location.origin +
+              `/payment/cashfree/success?orderId=${orderId}`;
+
+            const result = await cashfreeRef.current.pay({
+              paymentMethod: component,
+              paymentSessionId: sessionId,
+              returnUrl: returnUrl,
+              redirect: 'if_required',
+            });
+
+            if (result.error) {
+              setPaymentMessage(result.error.message || 'Payment failed');
+              setMessageType('error');
+            } else if (result.paymentDetails) {
+              setPaymentMessage('Payment initiated');
+              setMessageType('success');
+            }
+          } catch (error: any) {
+            console.error('Payment error:', error);
+            setPaymentMessage(error?.message || 'Payment processing failed');
             setMessageType('error');
-          } else if (result.paymentDetails) {
-            setPaymentMessage('Payment initiated');
-            setMessageType('success');
           }
-        } catch (error: any) {
-          console.error('Payment error:', error);
-          setPaymentMessage(error?.message || 'Payment processing failed');
-          setMessageType('error');
         }
+      } catch (error: any) {
+        console.error('UPI Intent error:', error);
+        setPaymentMessage('Failed to open UPI app');
+        setMessageType('error');
+      } finally {
+        setIsProcessing(false);
+        setSelectedApp(null);
       }
-    } catch (error: any) {
-      console.error('UPI Intent error:', error);
-      setPaymentMessage('Failed to open UPI app');
-      setMessageType('error');
-    } finally {
-      setIsProcessing(false);
-      setSelectedApp(null);
-    }
-  }, [sessionId, orderId, isProcessing, isInWebView, upiApps]);
+    },
+    [sessionId, orderId, isProcessing, isInWebView, upiApps]
+  );
 
   const handleCheckout = useCallback(async () => {
     if (!sessionId || !cashfreeRef.current || isProcessing) return;
-    
+
     setIsProcessing(true);
     try {
       const checkoutOptions = {
@@ -136,7 +144,8 @@ const PaymentCashfree: React.FC = () => {
       await cashfreeRef.current.checkout(checkoutOptions);
     } catch (error: any) {
       console.error('Checkout error:', error);
-      const errorMessage = error?.message || error?.data?.message || 'Checkout failed';
+      const errorMessage =
+        error?.message || error?.data?.message || 'Checkout failed';
       setPaymentMessage(errorMessage);
       setMessageType('error');
       setIsLoading(false);
@@ -207,25 +216,27 @@ const PaymentCashfree: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-2xl font-bold text-center mb-8">Complete Your Payment</h1>
-        
+        <h1 className="text-2xl font-bold text-center mb-8">
+          Complete Your Payment
+        </h1>
+
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-lg font-semibold mb-4">Select Payment Method</h2>
-          
+
           {/* Show error if session is invalid */}
           {messageType === 'error' && (
             <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded">
               <p className="text-sm">{paymentMessage}</p>
             </div>
           )}
-          
+
           {/* Show info messages */}
           {messageType === '' && paymentMessage && (
             <div className="mb-4 p-3 bg-blue-50 border border-blue-200 text-blue-700 rounded">
               <p className="text-sm">{paymentMessage}</p>
             </div>
           )}
-          
+
           <div className="space-y-4">
             <div>
               <h3 className="text-md font-medium mb-3">UPI Apps</h3>
@@ -234,7 +245,9 @@ const PaymentCashfree: React.FC = () => {
                   <button
                     key={app.id}
                     onClick={() => handleUpiIntent(app.id)}
-                    disabled={isProcessing || !app.available || messageType === 'error'}
+                    disabled={
+                      isProcessing || !app.available || messageType === 'error'
+                    }
                     className={`relative p-4 border rounded-lg transition-all ${
                       selectedApp === app.id
                         ? 'border-blue-500 bg-blue-50'
