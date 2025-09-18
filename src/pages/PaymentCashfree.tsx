@@ -57,7 +57,7 @@ const PaymentCashfree: React.FC = () => {
   }, []);
 
   const initializeUpiComponents = useCallback(() => {
-    if (!cashfreeRef.current || !isMobile) return;
+    if (!cashfreeRef.current || !isMobile || !sessionId) return;
 
     const style = {
       base: {
@@ -83,13 +83,23 @@ const PaymentCashfree: React.FC = () => {
           
           component.on('loaderror', (data: any) => {
             console.error(`Error loading ${app.name}:`, data.error?.message);
+            // Mark app as unavailable if it fails to load
+            const appIndex = upiApps.findIndex(a => a.id === app.id);
+            if (appIndex !== -1) {
+              upiApps[appIndex].available = false;
+            }
           });
         }
-      } catch (error) {
+      } catch (error: any) {
         console.error(`Error creating component for ${app.name}:`, error);
+        // If session is invalid, show error
+        if (error?.message?.includes('session') || error?.code === 'payment_session_id_invalid') {
+          setPaymentMessage('Payment session is invalid or expired. Please try again.');
+          setMessageType('error');
+        }
       }
     });
-  }, [isMobile, upiApps]);
+  }, [isMobile, upiApps, sessionId]);
 
   const handleUpiPayment = useCallback(async (appId: string) => {
     if (!sessionId || !cashfreeRef.current || isProcessing) return;
@@ -101,9 +111,10 @@ const PaymentCashfree: React.FC = () => {
 
     const component = upiComponentsRef.current.get(appId);
     if (!component) {
-      setPaymentMessage('Payment component not initialized');
+      setPaymentMessage('Payment component not initialized. Please refresh the page.');
       setMessageType('error');
       setIsProcessing(false);
+      setSelectedApp(null);
       return;
     }
 
@@ -122,7 +133,15 @@ const PaymentCashfree: React.FC = () => {
       component.enable();
       
       if (result.error) {
-        setPaymentMessage(result.error.message || 'Payment failed');
+        const errorMsg = result.error.message || result.error.code || 'Payment failed';
+        console.error('Payment error details:', result.error);
+        
+        // Check for session-related errors
+        if (errorMsg.includes('session') || result.error.code === 'payment_session_id_invalid') {
+          setPaymentMessage('Payment session has expired or is invalid. Please restart the payment process.');
+        } else {
+          setPaymentMessage(errorMsg);
+        }
         setMessageType('error');
       } else if (result.paymentDetails) {
         setPaymentMessage(result.paymentDetails.paymentMessage || 'Payment successful');
@@ -132,7 +151,14 @@ const PaymentCashfree: React.FC = () => {
       }
     } catch (error: any) {
       console.error('Payment error:', error);
-      setPaymentMessage(error.message || 'Payment processing failed');
+      const errorMsg = error?.message || error?.data?.message || 'Payment processing failed';
+      
+      // Check for session-related errors
+      if (errorMsg.includes('session') || error?.code === 'payment_session_id_invalid') {
+        setPaymentMessage('Payment session has expired or is invalid. Please restart the payment process.');
+      } else {
+        setPaymentMessage(errorMsg);
+      }
       setMessageType('error');
       component.enable();
     } finally {
@@ -153,8 +179,10 @@ const PaymentCashfree: React.FC = () => {
       await cashfreeRef.current.checkout(checkoutOptions);
     } catch (error: any) {
       console.error('Checkout error:', error);
-      setPaymentMessage(error.message || 'Checkout failed');
+      const errorMessage = error?.message || error?.data?.message || 'Checkout failed';
+      setPaymentMessage(errorMessage);
       setMessageType('error');
+      setIsLoading(false); // Show error UI instead of loading
     } finally {
       setIsProcessing(false);
     }
@@ -174,8 +202,10 @@ const PaymentCashfree: React.FC = () => {
             initializeUpiComponents();
           }, 100);
         } else {
-          // On desktop, directly trigger checkout
-          handleCheckout();
+          // On desktop, add a small delay to ensure SDK is fully ready
+          setTimeout(() => {
+            handleCheckout();
+          }, 500);
         }
       } else {
         setIsLoading(false);
@@ -206,6 +236,26 @@ const PaymentCashfree: React.FC = () => {
     );
   }
 
+  // Show error message if checkout failed on desktop
+  if (!isMobile && messageType === 'error') {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="max-w-md w-full">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg">
+            <h3 className="font-semibold mb-2">Payment Error</h3>
+            <p className="mb-4">{paymentMessage}</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
@@ -227,6 +277,13 @@ const PaymentCashfree: React.FC = () => {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-lg font-semibold mb-4">Select Payment Method</h2>
             
+            {/* Show error for mobile if session is invalid */}
+            {messageType === 'error' && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded">
+                <p className="text-sm">{paymentMessage}</p>
+              </div>
+            )}
+            
             <div className="space-y-4">
               <div>
                 <h3 className="text-md font-medium mb-3">UPI Apps</h3>
@@ -235,13 +292,13 @@ const PaymentCashfree: React.FC = () => {
                     <button
                       key={app.id}
                       onClick={() => handleUpiPayment(app.id)}
-                      disabled={isProcessing || !app.available}
+                      disabled={isProcessing || !app.available || messageType === 'error'}
                       className={`relative p-4 border rounded-lg transition-all ${
                         selectedApp === app.id
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                       } ${
-                        isProcessing || !app.available
+                        isProcessing || !app.available || messageType === 'error'
                           ? 'opacity-50 cursor-not-allowed'
                           : 'cursor-pointer'
                       }`}
@@ -264,7 +321,7 @@ const PaymentCashfree: React.FC = () => {
                   disabled={isProcessing}
                   className="w-full bg-gray-800 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {isProcessing ? 'Processing...' : 'Use Other Payment Methods'}
+                  {isProcessing ? 'Processing...' : 'Use Standard Checkout'}
                 </button>
               </div>
             </div>
