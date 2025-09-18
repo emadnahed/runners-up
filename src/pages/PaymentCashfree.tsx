@@ -12,7 +12,8 @@ const PaymentCashfree: React.FC = () => {
   let cashfree;
   const initializeSDK = async function () {
     cashfree = await load({
-      mode: app_env === 'production' ? 'production' : 'sandbox',
+      // mode: app_env === 'production' ? 'production' : 'sandbox',
+      mode: 'sandbox',
     });
   };
 
