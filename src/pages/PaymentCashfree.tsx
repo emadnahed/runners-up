@@ -62,6 +62,15 @@ const PaymentCashfree: React.FC = () => {
 
   const handleUpiIntent = useCallback(
     async (appId: string) => {
+      // Check if we're in WebView and should just redirect to standard checkout
+      if (isInWebView && (window as any).ReactNativeWebView) {
+        // For React Native WebView, we'll use standard checkout
+        // because UPI intent needs to be handled differently
+        console.log('In WebView, using standard checkout for UPI');
+        handleCheckout();
+        return;
+      }
+
       if (!sessionId || !cashfreeRef.current || isProcessing) return;
 
       setIsProcessing(true);
@@ -70,6 +79,8 @@ const PaymentCashfree: React.FC = () => {
       setSelectedApp(appId);
 
       try {
+        console.log('Creating UPI app component for:', appId);
+        
         // Create UPI app component using Cashfree SDK
         const component = cashfreeRef.current.create('upiApp', {
           values: {
@@ -77,10 +88,24 @@ const PaymentCashfree: React.FC = () => {
           },
         });
 
+        console.log('UPI component created:', component);
+
+        // Mount the component to a hidden div first (required by some SDKs)
+        const hiddenDiv = document.createElement('div');
+        hiddenDiv.id = `upi-mount-${appId}`;
+        hiddenDiv.style.display = 'none';
+        document.body.appendChild(hiddenDiv);
+
+        try {
+          component.mount(`#upi-mount-${appId}`);
+        } catch (mountError) {
+          console.log('Mount not required or failed:', mountError);
+        }
+
         // Get the payment session details
-        const returnUrl = isInWebView 
-          ? `${window.location.origin}/payment/cashfree/success?orderId=${orderId}`
-          : window.location.href;
+        const returnUrl = `${window.location.origin}/payment/cashfree/success?orderId=${orderId}`;
+
+        console.log('Calling cashfree.pay with session:', sessionId);
 
         // Use Cashfree's pay method which will generate the proper UPI intent URL
         const result = await cashfreeRef.current.pay({
@@ -92,43 +117,51 @@ const PaymentCashfree: React.FC = () => {
 
         console.log('Cashfree pay result:', result);
 
-        // Check if we got a redirect URL (UPI intent URL)
-        if (result.url) {
-          if (isInWebView && (window as any).ReactNativeWebView) {
-            // Send the UPI URL to React Native
-            const message = JSON.stringify({
-              type: 'UPI_INTENT_URL',
-              appId: appId,
-              url: result.url,
-              sessionId: sessionId,
-              orderId: orderId,
-            });
-            (window as any).ReactNativeWebView.postMessage(message);
-            
-            setPaymentMessage(
-              'Opening ' + upiApps.find((a) => a.id === appId)?.name + '...'
-            );
-          } else {
-            // For mobile browsers, directly open the URL
-            window.location.href = result.url;
-          }
-        } else if (result.error) {
+        // Clean up the hidden div
+        if (hiddenDiv.parentNode) {
+          hiddenDiv.parentNode.removeChild(hiddenDiv);
+        }
+
+        // Check the result
+        if (result?.redirect) {
+          // Cashfree will handle the redirect
+          console.log('Cashfree handling redirect');
+        } else if (result?.error) {
+          console.error('Cashfree payment error:', result.error);
           setPaymentMessage(result.error.message || 'Payment failed');
           setMessageType('error');
-        } else if (result.paymentDetails) {
+        } else if (result?.paymentDetails) {
           setPaymentMessage('Payment initiated');
           setMessageType('success');
+        } else {
+          // No specific result, might be handled by Cashfree internally
+          console.log('Payment initiated, waiting for redirect');
         }
       } catch (error: any) {
-        console.error('UPI Intent error:', error);
-        setPaymentMessage(error?.message || 'Failed to process payment');
+        console.error('UPI Intent error details:', {
+          message: error?.message,
+          code: error?.code,
+          stack: error?.stack
+        });
+        
+        // More specific error messages
+        let errorMsg = 'Failed to process payment';
+        if (error?.message?.includes('session')) {
+          errorMsg = 'Payment session expired or invalid';
+        } else if (error?.message?.includes('network')) {
+          errorMsg = 'Network error. Please check your connection';
+        } else if (error?.message) {
+          errorMsg = error.message;
+        }
+        
+        setPaymentMessage(errorMsg);
         setMessageType('error');
       } finally {
         setIsProcessing(false);
         setSelectedApp(null);
       }
     },
-    [sessionId, orderId, isProcessing, isInWebView, upiApps]
+    [sessionId, orderId, isProcessing, isInWebView, handleCheckout]
   );
 
   const handleCheckout = useCallback(async () => {
